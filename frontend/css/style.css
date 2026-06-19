@@ -25,122 +25,183 @@ body{
 
 /* Navbar */
 
-nav{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
+/* ==========================
+   NAVBAR
+========================== */
 
-    padding:20px 50px;
-
-    background:#0b251d;
-}
-
-.logo{
-    font-size:1.5rem;
-    font-weight:bold;
-}
-
-nav ul{
-    display:flex;
-    list-style:none;
-    gap:25px;
-}
-
-nav a{
-    text-decoration:none;
-    color:white;
-}
-
-nav a:hover{
-    color:var(--accent);
-}
-
-/* Hero */
-
-.hero{
-    height:90vh;
-
-    display:flex;
-    justify-content:center;
-    align-items:center;
-
-    text-align:center;
-
-    padding:20px;
-}
-
-.hero-content h1{
-    font-size: clamp(3rem, 8vw, 6rem);
-
-    text-transform: uppercase;
-
-    letter-spacing: 3px;
-
-    text-shadow:
-        0 0 15px rgba(0,0,0,0.5);
-}
-
-.hero-content p{
-    font-size:1.2rem;
-    margin-bottom:30px;
-}
-
-.hero-content button{
-    padding:15px 30px;
-
-    border:none;
-    border-radius:8px;
-
-    background:var(--accent);
-    color:white;
-
-    cursor:pointer;
-}
-
-.hero-content button:hover{
-    opacity:0.8;
-}
-.hero{
-    position: relative;
-
-    height: 100vh;
-
-    background-image: url("../images/hero.jpg");
-    background-size: cover;
-    background-position: center;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    text-align: center;
-}
-.overlay{
-    position: absolute;
-
+.navbar {
+    position: fixed;
     top: 0;
     left: 0;
 
     width: 100%;
+    z-index: 1000;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 20px 60px;
+
+    background: rgba(0, 0, 0, 0.35);
+    backdrop-filter: blur(12px);
+
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+
+    transition: all 0.3s ease;
+}
+
+.logo {
+    font-size: 2rem;
+    font-weight: 700;
+    color: white;
+
+    letter-spacing: 1px;
+    cursor: pointer;
+
+    transition: 0.3s ease;
+}
+
+.logo:hover {
+    color: #57c596;
+}
+
+.nav-links {
+    display: flex;
+    gap: 35px;
+
+    list-style: none;
+}
+
+.nav-links li {
+    list-style: none;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+
+    font-size: 1rem;
+    font-weight: 500;
+
+    position: relative;
+
+    transition: all 0.3s ease;
+}
+
+.nav-links a::after {
+    content: "";
+
+    position: absolute;
+    left: 0;
+    bottom: -8px;
+
+    width: 0;
+    height: 2px;
+
+    background: #57c596;
+
+    transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+.nav-links a:hover {
+    color: #57c596;
+}
+
+/* Active Page */
+
+.nav-links a.active {
+    color: #57c596;
+}
+
+.nav-links a.active::after {
+    width: 100%;
+}
+
+/* Mobile */
+
+@media (max-width: 768px) {
+
+    .navbar {
+        padding: 15px 25px;
+    }
+
+    .logo {
+        font-size: 1.5rem;
+    }
+
+    .nav-links {
+        gap: 20px;
+    }
+
+    .nav-links a {
+        font-size: 0.9rem;
+    }
+
+}
+.logo span{
+    color:#57c596;
+}
+/* Hero */
+
+.hero {
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.hero-video {
+    position: absolute;
+    inset: 0;
+
+    width: 100%;
     height: 100%;
 
-    background: rgba(0,0,0,0.45);
-}
-.hero-content{
-    position: relative;
-    z-index: 1;
+    object-fit: cover;
 
-    max-width: 800px;
-    padding: 20px;
+    opacity: 0;
+    transition: opacity 1s ease;
+
+    z-index: 1;
 }
-.hero-content h1{
-    font-size: 4rem;
-    margin-bottom: 20px;
+
+.hero-video.active {
+    opacity: 1;
 }
-.hero-content p{
-    font-size: 1.3rem;
-    margin-bottom: 30px;
+
+.hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.4);
+    z-index: 2;
 }
+
+.hero-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    text-align: center;
+    color: white;
+    z-index: 3;
+}
+
+.hero-content h1 {
+    font-size: 5rem;
+    margin-bottom: 1rem;
+}
+
+.hero-content p {
+    font-size: 1.4rem;
+    margin-bottom: 2rem;
+}
+
 .btn{
     display: inline-block;
 
@@ -559,4 +620,12 @@ nav a.active{
 .admin-container textarea{
     padding:12px;
     border-radius:8px;
+}
+#heroVideo {
+    animation: fadeIn 2s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
 }

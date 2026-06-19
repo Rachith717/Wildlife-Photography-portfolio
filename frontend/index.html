@@ -17,40 +17,57 @@
 </div>
 
     <!-- Navigation Bar -->
-    <nav>
-        <div class="logo">Rachith VC</div>
+    <nav class="navbar">
 
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="gallery.html">Gallery</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="gear.html">Gear</a></li>
-            <li><a href="contact.html">Contact</a></li>
-<button id="musicBtn" class="music-btn">
-    🎵
-</button>        </ul>
-    </nav>
+    <div class="logo">
+        📸 Rachith VC
+    </div>
+
+    <ul class="nav-links">
+
+        <li><a href="index.html">Home</a></li>
+
+        <li><a href="gallery.html">Gallery</a></li>
+
+        <li><a href="about.html">About</a></li>
+
+        <li><a href="gear.html">Gear</a></li>
+
+        <li><a href="contact.html">Contact</a></li>
+
+        <button id="musicBtn" class="music-btn">
+            🎵
+        </button>        
+    </ul>
+</nav>
+    
+
+        
 
     <!-- Hero Section -->
     <section class="hero">
 
-    <div class="overlay"></div>
+    <video class="hero-video active" autoplay muted playsinline>
+        <source src="videos/video1.mp4" type="video/mp4">
+    </video>
+
+    <video class="hero-video" muted playsinline>
+        <source src="videos/video2.mp4" type="video/mp4">
+    </video>
+
+    <video class="hero-video" muted playsinline>
+        <source src="videos/video3.mp4" type="video/mp4">
+    </video>
+    <video class="hero-video" muted playsinline>
+        <source src="videos/video4.mp4" type="video/mp4">
+    </video>
 
     <div class="hero-content">
-
         <h1>Wildlife Through My Lens</h1>
-
-        <p>
-            Exploring nature and capturing moments that tell a story.
-                <p>Cameraman never dies!!</p>
-</p>
-
-        <a href="gallery.html" class="btn">
-            Explore Gallery
-        </a>
-
+        <p>Capturing nature's most incredible moments.</p>
+        <p>Cameraman never dies!!</p>
+        <a href="#gallery" class="btn">Explore Gallery</a>
     </div>
-    
 
 </section>
 <section class="featured">
@@ -120,5 +137,6 @@
 <script src="js/main.js"></script>
 <script src="js/audio.js"></script>
 <script src="js/animations.js"></script>
+<script src="js/hero-video.js"></script>
 </body>
 </html>

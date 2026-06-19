@@ -1,0 +1,11 @@
+# Videos
+frontend/video/
+
+# Node modules
+node_modules/
+
+# Environment variables
+.env
+
+# Logs
+*.log
